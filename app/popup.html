@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Betatest ivi | Redmine</title>
+    <style>
+      @font-face {
+        font-family: iviSans;
+        font-weight: 400;
+        font-style: normal;
+        src: url(fonts/iviSans-Regular.otf) format('opentype');
+      }
+
+      @font-face {
+        font-family: iviSans;
+        font-weight: 500;
+        font-style: normal;
+        src: url(fonts/iviSans-Medium.otf) format('opentype');
+      }
+
+      @font-face {
+        font-family: iviSans;
+        font-weight: 700;
+        font-style: normal;
+        src: url(fonts/iviSans-Bold.otf) format('opentype');
+      }
+
+      @font-face {
+        font-family: iviSans;
+        font-weight: 900;
+        font-style: normal;
+        src: url(fonts/iviSans-Black.otf) format('opentype');
+      }
+
+      @font-face {
+        font-family: ivi-icons;
+        font-weight: 400;
+        font-style: normal;
+        src: url(fonts/ivi-icons.woff) format('woff');
+      }
+
+      html {
+        background-color: #ccc;
+      }
+
+      body {
+        background-color: #fff;
+        position: relative;
+      }
+
+      html,
+      body {
+        font-size: 15px;
+        margin: 0;
+        min-height: 180px;
+        padding: 0;
+        width: 380px;
+        color: #25213f;
+        cursor: default;
+      }
+
+      * {
+        font-family: iviSans, Roboto, serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        padding: 20px;
+        background-color: #281f55;
+        box-shadow: 0 4px 12px rgba(17,13,43,.2);
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        color: #fff;
+        line-height: 40px;
+      }
+
+      header .logo {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+        color: #f8104d;
+      }
+
+      .description {
+        padding: 20px;
+      }
+      
+      .text--info {
+        display: flex;
+        padding: 10px 15px;
+        padding-bottom: 15px;
+      }
+
+      .version {
+        font-size: 12px;
+        color: #c8c0ed;
+        width: 50%;
+        text-align: right;
+      }
+      
+      .autor {
+        font-size: 12px;
+        color: #c8c0ed;
+        text-decoration: none;
+        width: 50%;
+      }
+      
+      .renewal {
+        padding: 20px;
+        border-radius: 12px;
+        margin: 5px 10px;
+        background-color: #f6f5ff;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 28 28' id='sync_outline_28'%3e%3cg fill='%235F5887'%3e%3cpath d='M21.509 4.5a1 1 0 011 1V9a1 1 0 01-1 1h-3.502a1 1 0 110-2h1.292a7.975 7.975 0 00-5.294-2 8.004 8.004 0 00-7.955 7.11 1 1 0 01-1.989-.22A10.004 10.004 0 0114.005 4a9.97 9.97 0 016.503 2.4v-.9a1 1 0 011-1zM23.064 14.006a1 1 0 01.885 1.104A10.004 10.004 0 0114.005 24a9.97 9.97 0 01-6.503-2.4v.9a1 1 0 01-2.001 0V19a1 1 0 011-1h3.502a1 1 0 110 2H8.71a7.974 7.974 0 005.295 2 8.004 8.004 0 007.955-7.11 1 1 0 011.104-.884z'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        padding-left: 70px;
+        background-position: 15px center;
+        background-size: 40px;
+      }
+      
+      .renewal h3 {
+        color: #25213f;
+      }
+      
+      .renewal a {
+        color: #5e4bd4;
+      }
+    </style>
+    <script src="checkVersion.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" class="logo"><g fill="none" fill-rule="evenodd"><path d="M0 0h28v28H0z"></path><path d="M14 2.333c6.428 0 11.667 4.714 11.667 10.5 0 3.862-3.139 7-7 7h-2.065a.578.578 0 00-.584.584c0 .14.059.268.152.385.478.548.747 1.236.747 1.948A2.918 2.918 0 0114 25.667C7.572 25.667 2.333 20.428 2.333 14S7.572 2.333 14 2.333zm-.005 1.997c-5.328 0-9.665 4.337-9.665 9.665 0 5.328 4.337 9.665 9.665 9.665a.598.598 0 00.604-.604.653.653 0 00-.17-.423 3 3 0 01-.76-1.993 3.021 3.021 0 013.02-3.02h2.139a4.831 4.831 0 004.832-4.833c0-4.663-4.337-8.457-9.665-8.457zm-6.412 7.337a1.75 1.75 0 110 3.5 1.75 1.75 0 010-3.5zm12.834 0a1.75 1.75 0 110 3.5 1.75 1.75 0 010-3.5zM11.083 7a1.75 1.75 0 110 3.5 1.75 1.75 0 010-3.5zm5.834 0a1.75 1.75 0 110 3.5 1.75 1.75 0 010-3.5z" fill="currentColor" fill-rule="nonzero"></path></g></svg>
+      <h1>Betatest ivi</h1>
+    </header>
+    <p class="description">Делает Redmine похожим ivi</p>
+    <div class="text--info">
+      <a href="https://github.com/dmitry-407/betatest-ivi-redmine" target="_blank" class="autor">Made by Dmitry</a>
+      <p class="version"></p>
+    </div>
+  </body>
+</html>
