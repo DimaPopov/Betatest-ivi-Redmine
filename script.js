@@ -145,7 +145,7 @@
     
     if (errorElement.length > 0) {
       messageStart = emailUser.length > 0 ? '<div class="message my"><div class="message--content"><h3>' + emailUser + '</h3></div></div>' : '';
-      messageStart += '<div class="message error"><div class="message--content"><h3>Ошибка</h3><p class="text">' + errorElement.text() + '</p></div></div><div class="message"><div class="message--content"><h3>Попробуйте еще</h3><p class="text">чтобы пользоваться баг-трекером</p></div></div>';
+      messageStart += '<div class="message error"><div class="message--content"><h3>Ошибка</h3><p class="text">' + errorElement.text() + '</p></div></div><div class="message"><div class="message--content"><h3>Попробуйте ещё раз</h3><p class="text">чтобы пользоваться баг-трекером</p></div></div>';
       errorElement.remove();
     }
     
