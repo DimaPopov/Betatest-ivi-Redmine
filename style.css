@@ -14,6 +14,7 @@
   --ibiza: #110d2b;
   --varna: #281f55;
   --berbera: #3c3075;
+  --berbera_light: #2c225c;
   --dublin: #6152a8;
   --axum: #968acf;
   --mexico: #c8c0ed;
@@ -149,6 +150,24 @@ body,
 
 #top-menu #loggedas {
   color: var(--axum);
+}
+
+#top-meny #account {
+  vertical-align: top;
+}
+
+#top-menu .logout,
+#top-menu .my-account {
+  width: 21px;
+  height: 21px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+#top-menu .logout svg,
+#top-menu .my-account svg {
+  width: 100%;
+  height: 100%;
 }
 
 #main-menu {
@@ -395,6 +414,14 @@ div.wiki td {
 
 fieldset {
   border: 1px solid var(--berbera);
+  background: transparent;
+}
+
+#preview fieldset {
+  background: none;
+  padding: 0 20px;
+  margin-bottom: 0;
+  border-radius: 12px;
 }
 
 fieldset.collapsible > legend {
@@ -648,6 +675,11 @@ a.atom:before {
 }
 
 .messages .message {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(40px);
+  -o-transform: translateY(40px);
+  transform: translateY(40px);
   width: 50%;
   margin-left: 16.66666667%;
   padding-left: 12px;
@@ -656,23 +688,20 @@ a.atom:before {
   -webkit-transform-origin: 0 100%;
   -o-transform-origin: 0 100%;
   transform-origin: 0 100%;
-  -webkit-transition-property: opacity,-webkit-transform;
-  -o-transition-property: opacity,-o-transform;
-  transition-property: opacity,transform;
-  transition-property: opacity,transform,-webkit-transform,-o-transform;
+  -webkit-transition-property: opacity,-webkit-transform,visibility;
+  -o-transition-property: opacity,-o-transform,visibility;
+  transition-property: opacity,transform,visibility;
+  transition-property: opacity,transform,-webkit-transform,-o-transform,visibility;
   -webkit-transition-duration: .3s;
   -o-transition-duration: .3s;
   transition-duration: .3s;
   -webkit-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
-  opacity: 0;
-  -webkit-transform: translateY(40px);
-  -o-transform: translateY(40px);
-  transform: translateY(40px);
 }
 
 .messages .message.active {
+  visibility: visible;
   opacity: 1;
   -webkit-transform: translateY(0);
   -o-transform: translateY(0);
@@ -806,6 +835,11 @@ a.atom:before {
   outline: none;
 }
 
+.nbl-input.nbl-input_state_error .nbl-input__body .nbl-input__editbox {
+  background-color: var(--moroni);
+  color: var(--hanoi);
+}
+
 .nbl-input.nbl-input_iconType_icon .nbl-input__body .nbl-input__editbox {
   padding-left: 36px;
 }
@@ -843,6 +877,10 @@ a.atom:before {
   pointer-events: none;
 }
 
+.nbl-input.nbl-input_state_error .nbl-input__body .nbl-input__placeholder  {
+  color: var(--muar);
+}
+
 .nbl-input.nbl-input_state_focused .nbl-input__body .nbl-input__placeholder,
 .nbl-input.nbl-input_state_filled .nbl-input__body .nbl-input__placeholder {
   -webkit-transition: color 80ms,-webkit-transform 80ms;
@@ -868,6 +906,10 @@ a.atom:before {
   right: 0;
   bottom: 0;
   height: 2px;
+}
+
+.nbl-input.nbl-input_state_error .nbl-input__body .nbl-input__stripe {
+  background-color: rgba(255,84,46,.16);
 }
 
 .nbl-input.nbl-input_iconType_icon .nbl-input__icon {
@@ -917,6 +959,15 @@ a.atom:before {
   -webkit-transition: color 80ms;
   -o-transition: color 80ms;
   transition: color 80ms;
+}
+
+.nbl-input.nbl-input_state_error .nbl-input__icon .nbl-input__nbl-icon:before {
+  color: rgba(255,84,46,.16);
+}
+
+.nbl-input.nbl-input_state_error:hover .nbl-input__icon .nbl-input__nbl-icon:before,
+.nbl-input.nbl-input_state_error.nbl-input_state_focused .nbl-input__icon .nbl-input__nbl-icon:before  {
+  color: #ff8e74;
 }
 
 .nbl-icon_avatar_16:before {
@@ -1431,6 +1482,18 @@ legend {
 
 input, textarea, select {
   font-family: iviSans, Arial, Helvetica, Helvetica Neue, FreeSans, sans-serif;
+}
+
+#ajax-modal p.buttons input, .ui-datepicker .ui-datepicker-buttonpane button, .details input[type="submit"], input[type="button"], input[type="submit"], input[type="submit"][name="continue"], input[type="submit"].small, input[type="submit"].button-small {
+  border-color: transparent;
+  background: var(--berbera);
+  color: var(--axum);
+  margin-right: 10px;
+}
+
+#ajax-modal p.buttons input:hover, .ui-datepicker .ui-datepicker-buttonpane button:hover, .details input[type="submit"]:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="submit"][name="continue"]:hover, input[type="submit"].small:hover, input[type="submit"].button-small:hover {
+  background: var(--berbera_light);
+  color: var(--axum);
 }
 
 #ajax-modal p.buttons input[type="submit"], .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-close, input[type="submit"] {
