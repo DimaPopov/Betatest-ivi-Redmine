@@ -1,6 +1,8 @@
 'use strict';
 
 (function () {
+  const ENTER_KEY = 'Enter';
+    
   /*
   * Общие функции
   */
@@ -124,14 +126,26 @@
     }
   }
   
-  if (loginFormElement.length) {    
+  var keyButtonFormLogin = function (evt) { 
+    var code = evt.code;
+    
+    if (code == ENTER_KEY) {
+      evt.preventDefault();
+      
+      nextBlockForm();
+    }
+  }
+  
+  if (loginFormElement.length > 0) {    
+    document.addEventListener('keydown', keyButtonFormLogin);
+    
     var errorElement = $('#flash_error');
     var messageStart = '<div class="message"><div class="message--content"><h3>Войдите</h3><p class="text">чтобы пользоваться баг-трекером</p></div></div>';
+    const emailUser = loginFormElement.find('#username').val();
     
-    if (errorElement.length) {
-      const emailUser = loginFormElement.find('#username').val();
-      
-      messageStart = '<div class="message my"><div class="message--content"><h3>' + emailUser + '</h3></div></div><div class="message error"><div class="message--content"><h3>Ошибка</h3><p class="text">' + errorElement.text() + '</p></div></div><div class="message"><div class="message--content"><h3>Попробуйте еще</h3><p class="text">чтобы пользоваться баг-трекером</p></div></div>';
+    if (errorElement.length > 0) {
+      messageStart = emailUser.length > 0 ? '<div class="message my"><div class="message--content"><h3>' + emailUser + '</h3></div></div>' : '';
+      messageStart += '<div class="message error"><div class="message--content"><h3>Ошибка</h3><p class="text">' + errorElement.text() + '</p></div></div><div class="message"><div class="message--content"><h3>Попробуйте еще</h3><p class="text">чтобы пользоваться баг-трекером</p></div></div>';
       errorElement.remove();
     }
     
@@ -144,10 +158,16 @@
     setTimeout(function() { $('.messages .message:nth-child(1)').addClass('active'); }, 100);
     
     if (errorElement.length > 0) {
-      setTimeout(function() { $('.messages .message:nth-child(2)').addClass('active'); }, 400);
-      setTimeout(function() { $('.messages .message:nth-child(3)').addClass('active'); }, 600);
-      setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 800);
-      setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 1000);
+      if (emailUser.length > 0) {
+        setTimeout(function() { $('.messages .message:nth-child(2)').addClass('active'); }, 300);
+        setTimeout(function() { $('.messages .message:nth-child(3)').addClass('active'); }, 500);
+        setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 700);
+        setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 900);
+      }else {
+        setTimeout(function() { $('.messages .message:nth-child(2)').addClass('active'); }, 300);
+        setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 500);
+        setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 700);
+      }
     }else {
       setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 300);
       setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 500);
@@ -155,6 +175,10 @@
   }
   
   $('.wiki').parent().addClass('all');
+  
+  /*
+  * Обработка ошибок
+  */
   
   const errorExplanationElement = $('#errorExplanation');
   
@@ -187,6 +211,10 @@
       memberLabel.text(textMemverLavel);
     }
   }
+  
+  /*
+  * Скрытие пагинтации если страниц 0 из 0
+  */
   
   const itemsElement =  $('.pagination .items');
   
