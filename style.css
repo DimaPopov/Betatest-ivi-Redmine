@@ -1291,9 +1291,9 @@ div#content .context-menu-selection {
   background-color: #666;
 }
 
-.issues,
-.members,
-.spent_time.box {
+.box.issues,
+.box.members,
+.box.spent_time.box {
   border: none;
   background: var(--varna);
   background-color: var(--varna);
@@ -1301,6 +1301,7 @@ div#content .context-menu-selection {
   padding: 5px 20px;
   padding-top: 20px;
   color: inherit;
+  margin-bottom: 20px;
   box-sizing: border-box;
 }
 
