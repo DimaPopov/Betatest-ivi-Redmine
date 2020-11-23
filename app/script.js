@@ -78,12 +78,6 @@
     miniMenyElement.remove();
     topMenuElement.after(miniMenyElement);
   }
-    
-  var legendsElement = $('fieldset legend');
-  
-  if (legendsElement.text() == 'Файлы (0)') {
-    legendsElement.parent().remove();
-  }
   
   if (topMenuElement.find('#account ul li').length == 1) {
     topMenuElement.remove();
@@ -191,7 +185,7 @@
   $('.wiki').parent().addClass('all');
   
   /*
-  * Обработка ошибок
+  * Обработка сообщений об ошибоках
   */
   
   const errorExplanationElement = $('#errorExplanation');
@@ -225,7 +219,17 @@
   }
   
   /*
-  * Скрытие пагинтации если страниц 0 из 0
+  * Удаление элемента выпадающего списка с файлами, если нет файлов
+  */
+  
+  var legendsElement = $('fieldset legend');
+  
+  if (legendsElement.text() == 'Файлы (0)') {
+    legendsElement.parent().remove();
+  }
+  
+  /*
+  * Удаление пагинации, если страниц 0 из 0
   */
   
   const itemsElement =  $('.pagination .items');
@@ -237,7 +241,7 @@
   $('div#activity dt.me').parent().addClass('me');
   
   /*
-  * Замена текста в кнопках на иконки
+  * Замена текста в вверхнем меню в кнопках на иконки
   */
   
   const myAccountElement = topMenuElement.find('.my-account');
