@@ -103,7 +103,9 @@
       
       activeBlockFormLoginLeval++;
       
-      var messageElement = $('.messages').append('<div class="message my"><div class="message--content"><h3></h3></div></div>').find('.message:last-child');
+      $('.messages').append('<div class="message my"><div class="message--content"><h3>У меня нет учетной записи</h3></div></div><div class="message"><div class="message--content"><h3>Введите пароль, чтобы войти</h3></div></div>');
+      
+      var messageElement = $('.messages .message:nth-last-child(2)');
       
       messageElement.find('h3').text(email);
       $('.messages ~ form').append('<input  type="hidden" name="username" id="username" value="' + email + '">');
@@ -112,8 +114,9 @@
       $('.messages ~ form input').bind('input', inputBlockFormButton);
       onEventInput($('.messages ~ form'));
       setTimeout(function() { messageElement.addClass('active'); }, 100);
-      setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 300);
-      setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 500);
+      setTimeout(function() { $('.messages .message:last-child').addClass('active'); }, 300);
+      setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 500);
+      setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 700);
     }else if (activeBlockFormLoginLeval == 2) {
       const passwordElement = $('.messages ~ form #password');
       const lengthPasswordUser = passwordElement.val().length;
@@ -124,7 +127,7 @@
         return;
       }
       
-      $('.input--block').remove();
+      $('.input--block').hide();
       
       var messageElement = $('.messages').append('<div class="message my"><div class="message--content"><h3></h3></div></div>').find('.message:last-child');
       
@@ -136,7 +139,10 @@
       
       messageElement.find('h3').text(message);
       
-      setTimeout(function() { messageElement.addClass('active'); $('.messages ~ form').submit(); }, 100);
+      setTimeout(function() {
+        messageElement.addClass('active');
+        $('.messages ~ form').submit();
+      }, 100);
     }
   }
   
