@@ -1293,7 +1293,7 @@ div#content .context-menu-selection {
 
 .box.issues,
 .box.members,
-.box.spent_time.box {
+.box.spent_time {
   border: none;
   background: var(--varna);
   background-color: var(--varna);
