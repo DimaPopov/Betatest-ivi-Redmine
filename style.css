@@ -340,7 +340,8 @@ h2 {
 
 .wiki a:not(.wiki-anchor),
 #content a:not(.wiki-anchor),
-#sidebar a {
+#sidebar a,
+.box--shadow--button {
   font-style: normal;
   position: relative;
   cursor: pointer;
@@ -358,7 +359,8 @@ h2 {
 
 .wiki a:not(.wiki-anchor):hover,
 #content a:not(.wiki-anchor):hover,
-#sidebar a:hover {
+#sidebar a:hover,
+.box--shadow--button:hover {
   text-decoration: none;
   box-shadow: 0 0 0 var(--dublin), inset 0 -1.5em 0 var(--dublin);
   -webkit-transition-property: box-shadow,color;
@@ -370,13 +372,15 @@ h2 {
 }
 
 #content a.new:not(.wiki-anchor),
-#sidebar a.new {
+#sidebar a.new,
+.box--shadow--button.madrid {
   color: var(--sofia);
   box-shadow: 0 2px 0 var(--madrid), inset 0 0 0 var(--madrid);
 }
 
 #content a.new:not(.wiki-anchor):hover,
-#sidebar a.new:hover {
+#sidebar a.new:hover,
+.box--shadow--button.madrid:hover {
   text-decoration: none;
   box-shadow: 0 0 0 var(--madrid), inset 0 -1.5em 0 var(--madrid);
   -webkit-transition-property: box-shadow,color;
@@ -462,9 +466,9 @@ fieldset.collapsible.collapsed > legend:before {
 }
 
 .attachments a.icon-download {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' id='download_cloud_outline_28'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cpath d='M0 0h28v28H0z'%3e%3c/path%3e%3cpath d='M14 11.125c.446 0 .814.334.868.765l.007.11v11.071l2.565-2.243a.875.875 0 011.206 1.262l-.086.082-4 3.5-.032.026a.868.868 0 01-.045.032l.077-.058a.88.88 0 01-.844.156 1.158 1.158 0 01-.143-.064.888.888 0 01-.133-.092l.077.058a.868.868 0 01-.045-.032l-.032-.026-4-3.5-.086-.082a.875.875 0 011.206-1.262l2.565 2.243V12c0-.483.392-.875.875-.875zM16.083 3a6.417 6.417 0 016.413 6.187l.004.213.066.036a4.75 4.75 0 012.429 3.93l.005.217c0 2.468-1.886 4.508-4.354 4.731l-.22.015L18 18.33a1 1 0 01-.117-1.993L18 16.33h2.38a2.75 2.75 0 00.762-5.348 1 1 0 01-.67-1.06 4.417 4.417 0 00-7.833-3.269 1 1 0 01-1.21.278 2.75 2.75 0 00-3.892 2.933 1 1 0 01-.667 1.113 2.751 2.751 0 00.712 5.351l.167.005 2.25-.001a1 1 0 01.118 1.993l-.116.007-2.251.001a4.75 4.75 0 01-2.301-8.906l.051-.028.005-.2a4.75 4.75 0 014.528-4.527l.217-.005c.357 0 .708.04 1.05.116l.272.071.034-.033a6.395 6.395 0 014.21-1.815L16.083 3z' fill='%23fff' fill-rule='nonzero'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3e%3cpath fill='%23fff' fill-rule='evenodd' d='M13.157 8.5a1 1 0 0 1 1.414 1.414l-3.793 3.793a.997.997 0 0 1-.742.292.997.997 0 0 1-.743-.292L5.5 9.914A1 1 0 0 1 6.914 8.5L9 10.586V1.2C9 .372 9.448 0 10 0s1 .372 1 1.2v9.457L13.157 8.5zM.227 15.323a1.017 1.017 0 0 1 .124-1.408.96.96 0 0 1 1.374.128c2.78 3.416 7.33 4.813 11.528 3.431a10.707 10.707 0 0 0 5.017-3.491.96.96 0 0 1 1.373-.14c.417.35.477.98.136 1.407a12.66 12.66 0 0 1-5.926 4.127C8.888 21.012 3.51 19.361.226 15.323z'/%3e%3c/svg%3e");
   transition: background .2s !important;
-  background-size: 90%;
+  background-size: 50%;
   background-position: center;
   margin-left: 10px;
   padding: 5px;
@@ -478,8 +482,7 @@ fieldset.collapsible.collapsed > legend:before {
 }
 
 .attachments a.icon-download:hover {
-  background-color: #fff;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' id='download_cloud_outline_28'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cpath d='M0 0h28v28H0z'%3e%3c/path%3e%3cpath d='M14 11.125c.446 0 .814.334.868.765l.007.11v11.071l2.565-2.243a.875.875 0 011.206 1.262l-.086.082-4 3.5-.032.026a.868.868 0 01-.045.032l.077-.058a.88.88 0 01-.844.156 1.158 1.158 0 01-.143-.064.888.888 0 01-.133-.092l.077.058a.868.868 0 01-.045-.032l-.032-.026-4-3.5-.086-.082a.875.875 0 011.206-1.262l2.565 2.243V12c0-.483.392-.875.875-.875zM16.083 3a6.417 6.417 0 016.413 6.187l.004.213.066.036a4.75 4.75 0 012.429 3.93l.005.217c0 2.468-1.886 4.508-4.354 4.731l-.22.015L18 18.33a1 1 0 01-.117-1.993L18 16.33h2.38a2.75 2.75 0 00.762-5.348 1 1 0 01-.67-1.06 4.417 4.417 0 00-7.833-3.269 1 1 0 01-1.21.278 2.75 2.75 0 00-3.892 2.933 1 1 0 01-.667 1.113 2.751 2.751 0 00.712 5.351l.167.005 2.25-.001a1 1 0 01.118 1.993l-.116.007-2.251.001a4.75 4.75 0 01-2.301-8.906l.051-.028.005-.2a4.75 4.75 0 014.528-4.527l.217-.005c.357 0 .708.04 1.05.116l.272.071.034-.033a6.395 6.395 0 014.21-1.815L16.083 3z' fill='%23281f55' fill-rule='nonzero'%3e%3c/path%3e%3c/g%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3e%3cpath fill='%23f8104d' fill-rule='evenodd' d='M13.157 8.5a1 1 0 0 1 1.414 1.414l-3.793 3.793a.997.997 0 0 1-.742.292.997.997 0 0 1-.743-.292L5.5 9.914A1 1 0 0 1 6.914 8.5L9 10.586V1.2C9 .372 9.448 0 10 0s1 .372 1 1.2v9.457L13.157 8.5zM.227 15.323a1.017 1.017 0 0 1 .124-1.408.96.96 0 0 1 1.374.128c2.78 3.416 7.33 4.813 11.528 3.431a10.707 10.707 0 0 0 5.017-3.491.96.96 0 0 1 1.373-.14c.417.35.477.98.136 1.407a12.66 12.66 0 0 1-5.926 4.127C8.888 21.012 3.51 19.361.226 15.323z'/%3e%3c/svg%3e");
 }
 
 .attachments a {
@@ -675,37 +678,11 @@ a.atom:before {
 }
 
 .messages .message {
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transform: translateY(40px);
-  -o-transform: translateY(40px);
-  transform: translateY(40px);
   width: 50%;
   margin-left: 16.66666667%;
   padding-left: 12px;
   padding-right: 12px;
   margin-top: 24px;
-  -webkit-transform-origin: 0 100%;
-  -o-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-  -webkit-transition-property: opacity,-webkit-transform,visibility;
-  -o-transition-property: opacity,-o-transform,visibility;
-  transition-property: opacity,transform,visibility;
-  transition-property: opacity,transform,-webkit-transform,-o-transform,visibility;
-  -webkit-transition-duration: .3s;
-  -o-transition-duration: .3s;
-  transition-duration: .3s;
-  -webkit-transition-timing-function: ease-out;
-  -o-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
-}
-
-.messages .message.active {
-  visibility: visible;
-  opacity: 1;
-  -webkit-transform: translateY(0);
-  -o-transform: translateY(0);
-  transform: translateY(0);
 }
 
 .messages .message.my {
@@ -774,7 +751,19 @@ a.atom:before {
 }
 
 .input--block .nbl-input,
-.input--block .next--block__button {
+.input--block .next--block__button,
+.input--block .box--shadow--button,
+.messages .message {
+  opacity: 0;
+  -webkit-transform: translateY(40px);
+  -o-transform: translateY(40px);
+  transform: translateY(40px);
+}
+
+.input--block .nbl-input.active,
+.input--block .next--block__button.active,
+.input--block .box--shadow--button.active,
+.messages .message.active {
   -webkit-transform-origin: 0 100%;
   -o-transform-origin: 0 100%;
   transform-origin: 0 100%;
@@ -788,18 +777,33 @@ a.atom:before {
   -webkit-transition-timing-function: ease-out;
   -o-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
-  opacity: 0;
-  -webkit-transform: translateY(40px);
-  -o-transform: translateY(40px);
-  transform: translateY(40px);
-}
-
-.input--block .nbl-input.active,
-.input--block .next--block__button.active {
   opacity: 1;
   -webkit-transform: translateY(0);
   -o-transform: translateY(0);
   transform: translateY(0);
+}
+
+
+.input--block .box--shadow--button {
+  -webkit-transform: translateY(40px) translateX(-50%);
+  -o-transform: translateY(40px) translateX(-50%);
+  transform: translateY(40px) translateX(-50%);
+}
+
+.input--block .box--shadow--button.active {
+  -webkit-transform: translateY(0) translateX(-50%);
+  -o-transform: translateY(0) translateX(-50%);
+  transform: translateY(0) translateX(-50%);
+  -webkit-transition-property: opacity,-webkit-transform,box-shadow,color;
+  -o-transition-property: opacity,-o-transform,box-shadow,color;
+  transition-property: opacity,transform,box-shadow,color;
+  transition-property: opacity,transform,-webkit-transform,-o-transform,box-shadow,color;
+}
+
+.input--block .box--shadow--button.active:hover {
+  -webkit-transition-duration: .08s;
+  -o-transition-duration: .08s;
+  transition-duration: .08s;
 }
 
 .nbl-input {
@@ -1015,6 +1019,12 @@ a.atom:before {
   -webkit-transition: 80ms;
   -o-transition: 80ms;
   transition: 80ms;
+}
+
+.input--block .box--shadow--button {
+  margin-top: 0;
+  position: relative;
+  left: 50%;
 }
 
 .block-receiver {

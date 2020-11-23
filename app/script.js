@@ -115,8 +115,38 @@
       setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 300);
       setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 500);
     }else if (activeBlockFormLoginLeval == 2) {
-      $('.messages ~ form').submit();
+      const passwordElement = $('.messages ~ form #password');
+      const lengthPasswordUser = passwordElement.val().length;
+      
+      if (lengthPasswordUser == 0) {
+        passwordElement.addClass('nbl-input_state_error');
+        
+        return;
+      }
+      
+      $('.input--block').remove();
+      
+      var messageElement = $('.messages').append('<div class="message my"><div class="message--content"><h3></h3></div></div>').find('.message:last-child');
+      
+      var message = '';
+      
+      for (var i = 0; i <= lengthPasswordUser; i++) {
+        message += '•';
+      }
+      
+      messageElement.find('h3').text(message);
+      
+      setTimeout(function() { messageElement.addClass('active'); $('.messages ~ form').submit(); }, 100);
     }
+  }
+  
+  var noAccount = function () {
+    $('.input--block').remove();
+    
+    $('.messages').append('<div class="message my"><div class="message--content"><h3>У меня нет учетной записи</h3></div></div><div class="message"><div class="message--content"><h3>Если у вас нет учетной записи</h3><p class="text">и вы состоите в программе бета-тестирования, обратитесь к менеджеру программы бета-тестирования, он создаст вам учетную запись и вы сможете пользоваться баг-трекером</p></div></div>');
+    
+    setTimeout(function() { $('.messages .message:nth-last-child(2)').addClass('active'); }, 100);
+    setTimeout(function() { $('.messages .message:last-child').addClass('active'); }, 300);
   }
   
   var inputBlockFormButton = function () {
@@ -158,9 +188,10 @@
     }
     
     var toket = loginFormElement.find('input[name="authenticity_token"]').val();
-    loginFormElement.after('<div class="messages">' + messageStart + '</div><form onsubmit="return keepAnchorOnSignIn(this);" action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="' + toket + '"><div class="input--block"><div class="nbl-input nbl-input_iconType_icon"><div class="nbl-input__body"><div class="nbl-input__icon"><div class="nbl-icon nbl-icon_avatar_16 nbl-input__nbl-icon"></div></div><input name="username" id="username" autocomplete="on" tabindex="1" class="nbl-input__editbox"><div class="nbl-input__overlays"><div class="nbl-input__placeholder">Логин</div><div class="nbl-input__stripe"></div></div></div></div><p class="next--block__button disabled">Продолжить</p></div></form>');
+    loginFormElement.after('<div class="messages">' + messageStart + '</div><form onsubmit="return keepAnchorOnSignIn(this);" action="/login" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="' + toket + '"><div class="input--block"><div class="nbl-input nbl-input_iconType_icon"><div class="nbl-input__body"><div class="nbl-input__icon"><div class="nbl-icon nbl-icon_avatar_16 nbl-input__nbl-icon"></div></div><input name="username" id="username" autofocus autocomplete="on" tabindex="1" class="nbl-input__editbox"><div class="nbl-input__overlays"><div class="nbl-input__placeholder">Логин</div><div class="nbl-input__stripe"></div></div></div></div><p class="next--block__button disabled">Продолжить</p><p class="box--shadow--button">У меня нет учетной записи</p></div></form>');
     onEventInput($('.messages ~ form'));
     $('.messages ~ form input').bind('input', inputBlockFormButton);
+    $('.messages ~ form .box--shadow--button').bind('click', noAccount);
     loginFormElement.remove();
     
     setTimeout(function() { $('.messages .message:nth-child(1)').addClass('active'); }, 100);
@@ -171,14 +202,17 @@
         setTimeout(function() { $('.messages .message:nth-child(3)').addClass('active'); }, 500);
         setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 700);
         setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 900);
+        setTimeout(function() { $('.messages ~ form .box--shadow--button').addClass('active'); }, 1100);
       }else {
         setTimeout(function() { $('.messages .message:nth-child(2)').addClass('active'); }, 300);
         setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 500);
         setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 700);
+        setTimeout(function() { $('.messages ~ form .box--shadow--button').addClass('active'); }, 900);
       }
     }else {
       setTimeout(function() { $('.messages ~ form .nbl-input').addClass('active'); }, 300);
       setTimeout(function() { $('.messages ~ form .next--block__button').addClass('active'); }, 500);
+      setTimeout(function() { $('.messages ~ form .box--shadow--button').addClass('active'); }, 700);
     }
   }
   
@@ -203,6 +237,7 @@
     setTimeout(function() { $('.messages .message:nth-child(1)').addClass('active'); }, 100);
     setTimeout(function() { $('.messages .message:nth-child(2)').addClass('active'); }, 300);
     setTimeout(function() { $('.messages ~ .input--block .next--block__button').addClass('active'); }, 500);
+    setTimeout(function() { $('.messages ~ .input--block .box--shadow--button').addClass('active'); }, 700);
   }
   
   const members = $('.members');
