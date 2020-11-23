@@ -185,7 +185,7 @@
   $('.wiki').parent().addClass('all');
   
   /*
-  * Обработка сообщений об ошибоках
+  * Обработка сообщений об ошибках
   */
   
   const errorExplanationElement = $('#errorExplanation');
