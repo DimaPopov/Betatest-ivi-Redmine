@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  const version = "1.0 beta";
+  const version = "1.0";
   document.querySelector('.version').textContent = version;
     
   var http = new XMLHttpRequest();
