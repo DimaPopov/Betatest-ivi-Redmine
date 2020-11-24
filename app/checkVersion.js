@@ -3,13 +3,20 @@
 (function () {
   const version = "1.0";
   document.querySelector('.version').textContent = version;
-    
+  
   var http = new XMLHttpRequest();
   http.open('GET', 'https://dmitry-407.github.io/Betatest-ivi-Redmine/version.txt');
   http.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+      console.log(version, this.responseText);
       if (version != this.responseText) {
-        $('.description').after('<div class="renewal"><h3>Доступно обновление</h3><a target="_blank" href="https://dmitry-407.github.io/Betatest-ivi-Redmine/releases/tag/' + this.responseText + '">Подробнее</a></div>');
+        var textInfo = document.querySelector('.text--info');
+        var renewal = document.createElement("div");
+        
+        renewal.innerHTML = '<h3>Доступно обновление</h3><a target="_blank" href="https://github.com/Dmitry-407/Betatest-ivi-Redmine/releases/tag/' + this.responseText + '">Подробнее</a>';
+        renewal.classList.add('renewal');
+        
+        textInfo.parentNode.insertBefore(renewal, textInfo);
       }
     }
   }
