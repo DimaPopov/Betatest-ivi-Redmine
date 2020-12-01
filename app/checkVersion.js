@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  const version = "1.0";
+  const version = "1.1";
   document.querySelector('.version').textContent = version;
   
   var http = new XMLHttpRequest();
@@ -11,8 +11,8 @@
       console.log(version, this.responseText);
       if (version != this.responseText) {
         var textInfo = document.querySelector('.text--info');
-        var renewal = document.createElement("div");
         
+        var renewal = document.createElement("div");
         renewal.innerHTML = '<h3>Доступно обновление</h3><a target="_blank" href="https://github.com/Dmitry-407/Betatest-ivi-Redmine/releases/tag/' + this.responseText + '">Подробнее</a>';
         renewal.classList.add('renewal');
         
