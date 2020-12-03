@@ -14,7 +14,7 @@
   * Подгрузка стилей
   */
   
-  head.append('<link rel="stylesheet" media="all" href="https://dmitry-407.github.io/Betatest-ivi-Redmine/style.css">');
+  head.append('<link rel="stylesheet" media="all" href="https://dmitry-407.github.io/Betatest-ivi-Redmine/style.css?v=1.1">');
   
   /*
   * Иконки для проектов
