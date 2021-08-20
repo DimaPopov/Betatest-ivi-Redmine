@@ -1,10 +1,10 @@
 'use strict';
 
 (function () {
-  const version = "2.0";
+  const version = "2.0.1";
   document.querySelector('.version').textContent = version;
   
-  var http = new XMLHttpRequest();
+  const http = new XMLHttpRequest();
   http.open('GET', 'https://dmitry-407.github.io/Betatest-ivi-Redmine/version.txt');
   http.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {

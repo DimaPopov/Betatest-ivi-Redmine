@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Betatest ivi Redmine",
   "description": "Делает Redmine похожим ivi",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "icons": {
     "128": "icon_128.png"
   },

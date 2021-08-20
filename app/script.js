@@ -14,7 +14,7 @@
   * Подгрузка стилей
   */
 
-  head.append('<link rel="stylesheet" media="all" href="https://dmitry-407.github.io/Betatest-ivi-Redmine/style.css?v=2.0"> importance="high"');
+  head.append('<link rel="stylesheet" media="all" href="https://dmitry-407.github.io/Betatest-ivi-Redmine/style.css?v=2.0.1">');
 
   /*
   * Иконки для проектов
@@ -197,8 +197,6 @@
     if (miniMenyElement.length) {
       const urlNewTask = miniMenyElement.find('ul.menu-children > li:nth-child(1) a');
 
-      console.log(miniMenyElement, urlNewTask.hasClass('new-issue-sub'));
-
       if (urlNewTask.hasClass('new-issue-sub')) {
         headerElement.after('<div class="headerBar__tabsWrapper"><a class="nbl-tabsItem new-issue" href="' + urlNewTask.attr('href') + '">Новая задача</a></div>');
       }else {
@@ -259,9 +257,9 @@
 
       const quickAccessSettingsGuide = window.localStorage.getItem('quick_access_settings');
 
-      if (quickAccessSettingsGuide !== 'true') {
-        const top = $('.photo_user').position().top + $('.photo_user')[0].offsetHeight + 15;
-        const left = $('.photo_user').position().left - 464 + $('.photo_user')[0].offsetWidth * 2.5 + 20;
+      // if (quickAccessSettingsGuide !== 'true') {
+        const top = $('.photo_user').offset().top + $('.photo_user')[0].offsetHeight + 15;
+        const left = $('.photo_user').offset().left - 415;
 
         headerRightBlockElement.find('.photo_user').on('contextmenu', function (event) {
           window.localStorage.setItem('quick_access_settings', 'true');
@@ -270,7 +268,7 @@
         });
 
         $('#wrapper').append('<div class="tip--guide" id="popup_active_profile_guide" style="top: ' + top + 'px;left: ' + left + 'px;"><h2>Быстрый доступ к настройкам</h2><p class="text">Вы можете быстро открыть настройки или выйти из учетной записи, для этого нажмите правой кнопкой по аватарке</p></div>');
-      }
+      // }
     }, 500);
   }
 
@@ -569,19 +567,17 @@
 
     if (plarformSelectElement.length) {
       const nameProject = url.replace("projects/", '').replace("/issues/new", '').replace("-", ' ');
-
-      console.log(nameProject);
     }
 
     let selectParentElements = issueForm.find('select').parent();
 
     selectParentElements.each(function () {
-      const labelElement = $(this).find('label');
-      let labelText = labelElement.text();
+      const {remove, text} = $(this).find('label');
+      let labelText = text();
       const selectElement = $(this).find('select');
       const filled = !!selectElement.val() ? ' nbl-input_state_filled' : '';
 
-      labelElement.remove();
+      remove();
 
       $(this).addClass('no--padding');
 
@@ -1063,11 +1059,11 @@
 
     const whidthButton = buttonElement[0].offsetWidth;
     const heightButton = buttonElement[0].offsetHeight;
-    const top = buttonElement.position().top + heightButton + 10;
-    const left = buttonElement.position().left + whidthButton * 2.5 + whiteElement / 2 - 50;
+    const top = buttonElement.offset().top + heightButton + 10;
+    const left = buttonElement.offset().left - 10;
 
     $(selector).css('top', top);
-    left > windowWhite ?  $(selector).css('left', buttonElement.position().left - whiteElement + whidthButton) : $(selector).css('left', left);
+    left + whiteElement + 10 > windowWhite ?  $(selector).css('left', left - whiteElement + whidthButton - 10) : $(selector).css('left', left);
     $(selector).addClass('active');
 
     $(document).off('mouseup');
