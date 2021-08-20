@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-  const version = "1.1";
+  const version = "2.0";
     
   var http = new XMLHttpRequest();
   http.open('GET', 'https://dmitry-407.github.io/Betatest-ivi-Redmine/version.txt');
