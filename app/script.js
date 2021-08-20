@@ -257,7 +257,7 @@
 
       const quickAccessSettingsGuide = window.localStorage.getItem('quick_access_settings');
 
-      // if (quickAccessSettingsGuide !== 'true') {
+      if (quickAccessSettingsGuide !== 'true') {
         const top = $('.photo_user').offset().top + $('.photo_user')[0].offsetHeight + 15;
         const left = $('.photo_user').offset().left - 415;
 
@@ -268,7 +268,7 @@
         });
 
         $('#wrapper').append('<div class="tip--guide" id="popup_active_profile_guide" style="top: ' + top + 'px;left: ' + left + 'px;"><h2>Быстрый доступ к настройкам</h2><p class="text">Вы можете быстро открыть настройки или выйти из учетной записи, для этого нажмите правой кнопкой по аватарке</p></div>');
-      // }
+      }
     }, 500);
   }
 
